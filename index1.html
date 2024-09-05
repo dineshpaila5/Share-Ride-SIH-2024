@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpool service</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body{
+            background-image: url('./bg_img.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4" style="padding-top: 10px;">
+                <div class="card">
+                    <img src="image1.jpg" height="300px">
+                    <h2 class="text-center mb-3"> Where are you going now?</h2>
+                    <form id="location-form">
+                        <div class="form-floating mb-3" style="margin-left: 40px; margin-right: 40px;">
+                            <input type="text" class="form-control" id="source" placeholder="chennai">
+                            <label for="source">Pickup</label>
+                        </div>
+                        <div class="form-floating mb-3" style="margin-left: 40px; margin-right: 40px;">
+                            <input type="text" class="form-control" id="destination" placeholder="coimbatore">
+                            <label for="destination">Destination</label>
+                        </div>
+                        <button class="btn btn-primary mb-3" type="submit" style="margin-left: 160px;">Show Route</button>
+                    </form>
+                    <div style="padding-left : 40px; padding-right : 40px;">
+                        <h3 style="text-align: center;">Some Instruction</h3>
+                        <ul>
+                            <li>If you click "Show Route," you will be redirected to the map page with the default location of Delhi.</li>
+                            <li>After you select the mode of riding in the left controller, it will give you the correct route.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('location-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const source = document.getElementById('source').value;
+            const destination = document.getElementById('destination').value;
+            window.location.href = `map.html?source=${encodeURIComponent(source)}&destination=${encodeURIComponent(destination)}`;
+        });
+    </script>
+</body>
+</html>
